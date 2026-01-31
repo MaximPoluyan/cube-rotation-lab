@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp6
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            myControlElement1.InitGraph();
+            myControlElement2.InitGraph();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            myControlElement1.Kbase = 120;
+            myControlElement1.AddCube(30, 60, 45);
+
+            myControlElement2.Kbase = 40;
+            myControlElement2.AddCube(10, 30, 75);
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            myControlElement1.DeleteCube();
+            myControlElement2.DeleteCube();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            myControlElement1.StartCube(30, 15, 60);
+            myControlElement2.StartCube(20, 15, 90);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            myControlElement1.StopCube();
+            myControlElement2.StopCube();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            myControlElement1.SetBackColor(Color.White);
+            myControlElement2.SetBackColor(Color.Yellow);
+        }
+    }
+}
