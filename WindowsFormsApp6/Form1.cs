@@ -21,6 +21,9 @@ namespace WindowsFormsApp6
         {
             myControlElement1.InitGraph();
             myControlElement2.InitGraph();
+            myControlElement1.ShowHiddenEdges = true;   // большое: пунктир показываем
+            myControlElement2.ShowHiddenEdges = false;  // малое: только видимые
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,8 +56,17 @@ namespace WindowsFormsApp6
 
         private void button5_Click(object sender, EventArgs e)
         {
-            myControlElement1.SetBackColor(Color.White);
-            myControlElement2.SetBackColor(Color.Yellow);
+            using (var dlg = new ColorDialog())
+            {
+                dlg.FullOpen = true;
+                dlg.Color = Color.Bisque; // или возьми текущий цвет, если добавим свойство
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    myControlElement1.SetBackColor(dlg.Color);
+                    myControlElement2.SetBackColor(dlg.Color);
+                }
+            }
         }
     }
 }

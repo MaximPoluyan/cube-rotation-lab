@@ -12,6 +12,13 @@ namespace WindowsFormsControlLibrary1
 {
     public partial class MyControlElement: UserControl
     {
+
+        [Browsable(true)]
+        [Category("Cube")]
+        [Description("Показывать невидимые ребра пунктиром")]
+        [DefaultValue(true)]
+        public bool ShowHiddenEdges { get; set; } = true;
+
         Bitmap BM;
         Graphics Gr;
         Pen P1 = new Pen(Color.Black, 2);
@@ -188,20 +195,67 @@ namespace WindowsFormsControlLibrary1
                 if (NVz[4] >= 0) { LineType[2] = true; LineType[6] = true; LineType[10] = true; LineType[11] = true; }
                 if (NVz[5] >= 0) { LineType[1] = true; LineType[5] = true; LineType[9] = true; LineType[10] = true; }
 
-                //   Нарисовать куб, состоящий из 12 ребер:
-                if (LineType[0]) Gr.DrawLine(P1, Xscr[0], Yscr[0], Xscr[1], Yscr[1]); else Gr.DrawLine(P2, Xscr[0], Yscr[0], Xscr[1], Yscr[1]);
-                if (LineType[1]) Gr.DrawLine(P1, Xscr[1], Yscr[1], Xscr[2], Yscr[2]); else Gr.DrawLine(P2, Xscr[1], Yscr[1], Xscr[2], Yscr[2]);
-                if (LineType[2]) Gr.DrawLine(P1, Xscr[2], Yscr[2], Xscr[3], Yscr[3]); else Gr.DrawLine(P2, Xscr[2], Yscr[2], Xscr[3], Yscr[3]);
-                if (LineType[3]) Gr.DrawLine(P1, Xscr[3], Yscr[3], Xscr[0], Yscr[0]); else Gr.DrawLine(P2, Xscr[3], Yscr[3], Xscr[0], Yscr[0]);
-                if (LineType[4]) Gr.DrawLine(P1, Xscr[4], Yscr[4], Xscr[5], Yscr[5]); else Gr.DrawLine(P2, Xscr[4], Yscr[4], Xscr[5], Yscr[5]);
-                if (LineType[5]) Gr.DrawLine(P1, Xscr[5], Yscr[5], Xscr[6], Yscr[6]); else Gr.DrawLine(P2, Xscr[5], Yscr[5], Xscr[6], Yscr[6]);
-                if (LineType[6]) Gr.DrawLine(P1, Xscr[6], Yscr[6], Xscr[7], Yscr[7]); else Gr.DrawLine(P2, Xscr[6], Yscr[6], Xscr[7], Yscr[7]);
-                if (LineType[7]) Gr.DrawLine(P1, Xscr[7], Yscr[7], Xscr[4], Yscr[4]); else Gr.DrawLine(P2, Xscr[7], Yscr[7], Xscr[4], Yscr[4]);
-                if (LineType[8]) Gr.DrawLine(P1, Xscr[0], Yscr[0], Xscr[4], Yscr[4]); else Gr.DrawLine(P2, Xscr[0], Yscr[0], Xscr[4], Yscr[4]);
-                if (LineType[9]) Gr.DrawLine(P1, Xscr[1], Yscr[1], Xscr[5], Yscr[5]); else Gr.DrawLine(P2, Xscr[1], Yscr[1], Xscr[5], Yscr[5]);
-                if (LineType[10]) Gr.DrawLine(P1, Xscr[2], Yscr[2], Xscr[6], Yscr[6]); else Gr.DrawLine(P2, Xscr[2], Yscr[2], Xscr[6], Yscr[6]);
-                if (LineType[11]) Gr.DrawLine(P1, Xscr[3], Yscr[3], Xscr[7], Yscr[7]); else Gr.DrawLine(P2, Xscr[3], Yscr[3], Xscr[7], Yscr[7]);
+                // Нарисовать куб, состоящий из 12 ребер:
 
+                if (LineType[0])
+                    Gr.DrawLine(P1, Xscr[0], Yscr[0], Xscr[1], Yscr[1]);
+                else if (ShowHiddenEdges)
+                    Gr.DrawLine(P2, Xscr[0], Yscr[0], Xscr[1], Yscr[1]);
+
+                if (LineType[1])
+                    Gr.DrawLine(P1, Xscr[1], Yscr[1], Xscr[2], Yscr[2]);
+                else if (ShowHiddenEdges)
+                    Gr.DrawLine(P2, Xscr[1], Yscr[1], Xscr[2], Yscr[2]);
+
+                if (LineType[2])
+                    Gr.DrawLine(P1, Xscr[2], Yscr[2], Xscr[3], Yscr[3]);
+                else if (ShowHiddenEdges)
+                    Gr.DrawLine(P2, Xscr[2], Yscr[2], Xscr[3], Yscr[3]);
+
+                if (LineType[3])
+                    Gr.DrawLine(P1, Xscr[3], Yscr[3], Xscr[0], Yscr[0]);
+                else if (ShowHiddenEdges)
+                    Gr.DrawLine(P2, Xscr[3], Yscr[3], Xscr[0], Yscr[0]);
+
+                if (LineType[4])
+                    Gr.DrawLine(P1, Xscr[4], Yscr[4], Xscr[5], Yscr[5]);
+                else if (ShowHiddenEdges)
+                    Gr.DrawLine(P2, Xscr[4], Yscr[4], Xscr[5], Yscr[5]);
+
+                if (LineType[5])
+                    Gr.DrawLine(P1, Xscr[5], Yscr[5], Xscr[6], Yscr[6]);
+                else if (ShowHiddenEdges)
+                    Gr.DrawLine(P2, Xscr[5], Yscr[5], Xscr[6], Yscr[6]);
+
+                if (LineType[6])
+                    Gr.DrawLine(P1, Xscr[6], Yscr[6], Xscr[7], Yscr[7]);
+                else if (ShowHiddenEdges)
+                    Gr.DrawLine(P2, Xscr[6], Yscr[6], Xscr[7], Yscr[7]);
+
+                if (LineType[7])
+                    Gr.DrawLine(P1, Xscr[7], Yscr[7], Xscr[4], Yscr[4]);
+                else if (ShowHiddenEdges)
+                    Gr.DrawLine(P2, Xscr[7], Yscr[7], Xscr[4], Yscr[4]);
+
+                if (LineType[8])
+                    Gr.DrawLine(P1, Xscr[0], Yscr[0], Xscr[4], Yscr[4]);
+                else if (ShowHiddenEdges)
+                    Gr.DrawLine(P2, Xscr[0], Yscr[0], Xscr[4], Yscr[4]);
+
+                if (LineType[9])
+                    Gr.DrawLine(P1, Xscr[1], Yscr[1], Xscr[5], Yscr[5]);
+                else if (ShowHiddenEdges)
+                    Gr.DrawLine(P2, Xscr[1], Yscr[1], Xscr[5], Yscr[5]);
+
+                if (LineType[10])
+                    Gr.DrawLine(P1, Xscr[2], Yscr[2], Xscr[6], Yscr[6]);
+                else if (ShowHiddenEdges)
+                    Gr.DrawLine(P2, Xscr[2], Yscr[2], Xscr[6], Yscr[6]);
+
+                if (LineType[11])
+                    Gr.DrawLine(P1, Xscr[3], Yscr[3], Xscr[7], Yscr[7]);
+                else if (ShowHiddenEdges)
+                    Gr.DrawLine(P2, Xscr[3], Yscr[3], Xscr[7], Yscr[7]);
 
             }
 
