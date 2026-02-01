@@ -12,6 +12,22 @@ namespace WindowsFormsApp6
 {
     public partial class Form1 : Form
     {
+
+
+        private bool _cubeExists = false;
+        private bool _rotationRunning = false;
+
+        private void UpdateUiState()
+        {
+            
+            button1.Enabled = !_rotationRunning;                 // Нарисовать куб
+            button2.Enabled = _cubeExists && !_rotationRunning;  // Удалить куб
+            button3.Enabled = _cubeExists && !_rotationRunning;  // Запуск вращения
+            button4.Enabled = _rotationRunning;                  // Остановка вращения
+            button5.Enabled = true;                              // Изменить цвет 
+        }
+
+
         public Form1()
         {
             InitializeComponent();
@@ -23,6 +39,9 @@ namespace WindowsFormsApp6
             myControlElement2.InitGraph();
             myControlElement1.ShowHiddenEdges = true;   // большое: пунктир показываем
             myControlElement2.ShowHiddenEdges = false;  // малое: только видимые
+            _cubeExists = false;
+            _rotationRunning = false;
+            UpdateUiState();
 
         }
 
@@ -34,24 +53,35 @@ namespace WindowsFormsApp6
             myControlElement2.Kbase = 40;
             myControlElement2.AddCube(10, 30, 75);
 
+            _cubeExists = true;
+            _rotationRunning = false;
+            UpdateUiState();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             myControlElement1.DeleteCube();
             myControlElement2.DeleteCube();
+            _cubeExists = false;
+            _rotationRunning = false;
+            UpdateUiState();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             myControlElement1.StartCube(30, 15, 60);
             myControlElement2.StartCube(20, 15, 90);
+            _rotationRunning = true;
+            UpdateUiState();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             myControlElement1.StopCube();
             myControlElement2.StopCube();
+            _rotationRunning = false;
+            UpdateUiState();
         }
 
         private void button5_Click(object sender, EventArgs e)
