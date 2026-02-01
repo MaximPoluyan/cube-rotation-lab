@@ -41,6 +41,21 @@ namespace WindowsFormsControlLibrary1
         public MyControlElement()
         {
             InitializeComponent();
+            this.Disposed += MyControlElement_Disposed;
+        }
+        private void MyControlElement_Disposed(object sender, EventArgs e)
+        {
+            
+            timer1?.Stop();
+
+            Gr?.Dispose();
+            Gr = null;
+
+            BM?.Dispose();
+            BM = null;
+
+            P1?.Dispose();
+            P2?.Dispose();
         }
 
         private void MyControlElement_Load(object sender, EventArgs e)
@@ -58,6 +73,9 @@ namespace WindowsFormsControlLibrary1
             button1.Top = trackBar1.Top;
             button1.Width = 60;
             button1.Height = 40;
+            EnsureBuffer();
+            ReDrawPicture();
+
         }
 
         private void MyControlElement_Resize(object sender, EventArgs e)
@@ -75,16 +93,43 @@ namespace WindowsFormsControlLibrary1
             button1.Top = trackBar1.Top;
             button1.Width = 60;
             button1.Height = 40;
+            EnsureBuffer();
+            ReDrawPicture();
+
         }
 
         public void InitGraph()
         {
-            BM = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            Gr = Graphics.FromImage(BM);
-            pictureBox1.Image = BM;
-            P2.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            // BM = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            //Gr = Graphics.FromImage(BM);
+            //pictureBox1.Image = BM;
+            //P2.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            EnsureBuffer();
+            ReDrawPicture();
 
         }
+        private void EnsureBuffer()
+        {
+            int w = pictureBox1.Width;
+            int h = pictureBox1.Height;
+
+            if (w <= 0 || h <= 0) return;
+
+            // если буфер уже нужного размера — ничего не делаем
+            if (BM != null && BM.Width == w && BM.Height == h && Gr != null) return;
+
+            // освобождаем старое
+            Gr?.Dispose();
+            BM?.Dispose();
+
+            BM = new Bitmap(w, h);
+            Gr = Graphics.FromImage(BM);
+            pictureBox1.Image = BM;
+
+           
+            P2.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+        }
+
 
         public void AddCube(double _Psi, double _Teta, double _Fi)
         {
@@ -107,7 +152,7 @@ namespace WindowsFormsControlLibrary1
 
         public void StartCube(double _Wpsi, double _Wteta, double _Wfi)
         {
-            if (!LogCube) return;   //  Принудительный возврат из метода, если куба не существует (не добавлен)
+            if (!LogCube) return;   //Принудительный возврат из метода, если куба не существует
 
             Wpsi = _Wpsi * Math.PI / 180;
             Wteta = _Wteta * Math.PI / 180;
@@ -148,9 +193,12 @@ namespace WindowsFormsControlLibrary1
 
             ReDrawPicture();
         }
+            
 
         private void ReDrawPicture()
         {
+            EnsureBuffer();
+            if (Gr == null || BM == null) return;
             Gr.Clear(pictureBox1.BackColor);
 
             if (LogCube)
