@@ -20,11 +20,11 @@ namespace WindowsFormsApp6
         private void UpdateUiState()
         {
             
-            button1.Enabled = !_rotationRunning;                 // Нарисовать куб
-            button2.Enabled = _cubeExists && !_rotationRunning;  // Удалить куб
-            button3.Enabled = _cubeExists && !_rotationRunning;  // Запуск вращения
-            button4.Enabled = _rotationRunning;                  // Остановка вращения
-            button5.Enabled = true;                              // Изменить цвет 
+            button1.Enabled = !_rotationRunning;                 
+            button2.Enabled = _cubeExists && !_rotationRunning;  
+            button3.Enabled = _cubeExists && !_rotationRunning;  
+            button4.Enabled = _rotationRunning;                  
+            button5.Enabled = true;                              
         }
 
 
@@ -37,8 +37,8 @@ namespace WindowsFormsApp6
         {
             myControlElement1.InitGraph();
             myControlElement2.InitGraph();
-            myControlElement1.ShowHiddenEdges = true;   // большое: пунктир показываем
-            myControlElement2.ShowHiddenEdges = false;  // малое: только видимые
+            myControlElement1.ShowHiddenEdges = true;   
+            myControlElement2.ShowHiddenEdges = false; 
             _cubeExists = false;
             _rotationRunning = false;
             UpdateUiState();
@@ -89,7 +89,7 @@ namespace WindowsFormsApp6
             using (var dlg = new ColorDialog())
             {
                 dlg.FullOpen = true;
-                dlg.Color = Color.Bisque; // или возьми текущий цвет, если добавим свойство
+                dlg.Color = Color.Bisque; 
 
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {

@@ -39,73 +39,80 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(51, 577);
+            this.button1.Location = new System.Drawing.Point(57, 721);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 75);
+            this.button1.Size = new System.Drawing.Size(168, 94);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Нарисовать куб";
+            this.button1.Text = "Draw cube";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(245, 577);
+            this.button2.Location = new System.Drawing.Point(276, 721);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(143, 75);
+            this.button2.Size = new System.Drawing.Size(161, 94);
             this.button2.TabIndex = 3;
-            this.button2.Text = "Удалить куб";
+            this.button2.Text = "Delete cube";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(448, 575);
+            this.button3.Location = new System.Drawing.Point(504, 719);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(147, 76);
+            this.button3.Size = new System.Drawing.Size(165, 95);
             this.button3.TabIndex = 4;
-            this.button3.Text = "Запуск вращения";
+            this.button3.Text = "Start rotation";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(651, 573);
+            this.button4.Location = new System.Drawing.Point(732, 716);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(164, 78);
+            this.button4.Size = new System.Drawing.Size(184, 98);
             this.button4.TabIndex = 5;
-            this.button4.Text = "Остановка вращения";
+            this.button4.Text = "Stop rotation";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // myControlElement2
             // 
-            this.myControlElement2.Location = new System.Drawing.Point(649, 169);
+            this.myControlElement2.Location = new System.Drawing.Point(730, 211);
+            this.myControlElement2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.myControlElement2.Name = "myControlElement2";
-            this.myControlElement2.Size = new System.Drawing.Size(389, 294);
+            this.myControlElement2.Size = new System.Drawing.Size(438, 368);
             this.myControlElement2.TabIndex = 1;
             // 
             // myControlElement1
             // 
-            this.myControlElement1.Location = new System.Drawing.Point(12, 12);
+            this.myControlElement1.Location = new System.Drawing.Point(14, 15);
+            this.myControlElement1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.myControlElement1.Name = "myControlElement1";
-            this.myControlElement1.Size = new System.Drawing.Size(604, 524);
+            this.myControlElement1.Size = new System.Drawing.Size(680, 655);
             this.myControlElement1.TabIndex = 0;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(861, 571);
+            this.button5.Location = new System.Drawing.Point(969, 714);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(151, 79);
+            this.button5.Size = new System.Drawing.Size(170, 99);
             this.button5.TabIndex = 6;
-            this.button5.Text = "Изменить цвет";
+            this.button5.Text = "Change color";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1069, 679);
+            this.ClientSize = new System.Drawing.Size(1203, 849);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -113,6 +120,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.myControlElement2);
             this.Controls.Add(this.myControlElement1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);

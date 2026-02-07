@@ -100,10 +100,6 @@ namespace WindowsFormsControlLibrary1
 
         public void InitGraph()
         {
-            // BM = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            //Gr = Graphics.FromImage(BM);
-            //pictureBox1.Image = BM;
-            //P2.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             EnsureBuffer();
             ReDrawPicture();
 
@@ -115,10 +111,10 @@ namespace WindowsFormsControlLibrary1
 
             if (w <= 0 || h <= 0) return;
 
-            // если буфер уже нужного размера — ничего не делаем
+            
             if (BM != null && BM.Width == w && BM.Height == h && Gr != null) return;
 
-            // освобождаем старое
+            
             Gr?.Dispose();
             BM?.Dispose();
 
@@ -152,7 +148,7 @@ namespace WindowsFormsControlLibrary1
 
         public void StartCube(double _Wpsi, double _Wteta, double _Wfi)
         {
-            if (!LogCube) return;   //Принудительный возврат из метода, если куба не существует
+            if (!LogCube) return;   
 
             Wpsi = _Wpsi * Math.PI / 180;
             Wteta = _Wteta * Math.PI / 180;
@@ -203,7 +199,7 @@ namespace WindowsFormsControlLibrary1
 
             if (LogCube)
             {
-                //  Вычисление матрицы поворота (матрицы косинусов):
+                
                 C[0, 0] = Math.Cos(Psi) * Math.Cos(Fi) - Math.Sin(Psi) * Math.Cos(Teta) * Math.Sin(Fi);
                 C[0, 1] = Math.Cos(Psi) * Math.Sin(Fi) + Math.Sin(Psi) * Math.Cos(Teta) * Math.Cos(Fi);
                 C[0, 2] = Math.Sin(Psi) * Math.Sin(Teta);
@@ -215,26 +211,24 @@ namespace WindowsFormsControlLibrary1
                 C[2, 2] = Math.Cos(Teta);
 
 
-                //  Вычисление конечных (после поворота) координат вершин куба:
+                
                 for (int k = 0; k < 8; k++)
                 {
-                    //  математические координаты:
+                  
                     X[k, 0] = C[0, 0] * X0[k, 0] + C[0, 1] * X0[k, 1] + C[0, 2] * X0[k, 2];
                     X[k, 1] = C[1, 0] * X0[k, 0] + C[1, 1] * X0[k, 1] + C[1, 2] * X0[k, 2];
-
-                    //  экранные координаты:
+                    
                     Xscr[k] = (int)(BM.Width / 2 + K * X[k, 0]);
                     Yscr[k] = (int)(BM.Height / 2 - K * X[k, 1]);
                 }
 
 
-                //   Вычисление проекции на ось Oz нормальных векторов:
                 for (int k = 0; k < 6; k++)
                 {
                     NVz[k] = C[2, 0] * NV0[k, 0] + C[2, 1] * NV0[k, 1] + C[2, 2] * NV0[k, 2];
                 }
 
-                //   Определение будут ли ребра куба видимыми (сплошная линия) или невидимыми (пунктирная линия):
+               
                 for (int k = 0; k < 12; k++) LineType[k] = false;
                 if (NVz[0] >= 0) { LineType[0] = true; LineType[1] = true; LineType[2] = true; LineType[3] = true; }
                 if (NVz[1] >= 0) { LineType[0] = true; LineType[4] = true; LineType[8] = true; LineType[9] = true; }
@@ -243,7 +237,7 @@ namespace WindowsFormsControlLibrary1
                 if (NVz[4] >= 0) { LineType[2] = true; LineType[6] = true; LineType[10] = true; LineType[11] = true; }
                 if (NVz[5] >= 0) { LineType[1] = true; LineType[5] = true; LineType[9] = true; LineType[10] = true; }
 
-                // Нарисовать куб, состоящий из 12 ребер:
+                
 
                 if (LineType[0])
                     Gr.DrawLine(P1, Xscr[0], Yscr[0], Xscr[1], Yscr[1]);
