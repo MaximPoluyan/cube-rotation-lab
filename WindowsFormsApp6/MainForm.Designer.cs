@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp6
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -101,7 +101,7 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -113,9 +113,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.myControlElement2);
             this.Controls.Add(this.myControlElement1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "MainForm";
+            this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }
@@ -131,4 +131,5 @@
         private System.Windows.Forms.Button button5;
     }
 }
+
 

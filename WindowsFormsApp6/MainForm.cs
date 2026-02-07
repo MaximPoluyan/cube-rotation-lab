@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp6
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
 
 
@@ -28,12 +28,12 @@ namespace WindowsFormsApp6
         }
 
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             myControlElement1.InitGraph();
             myControlElement2.InitGraph();
