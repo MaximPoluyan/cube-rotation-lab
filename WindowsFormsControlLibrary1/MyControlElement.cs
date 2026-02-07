@@ -69,10 +69,10 @@ namespace WindowsFormsControlLibrary1
             trackBar1.Top = pictureBox1.Height + 5;
             trackBar1.Width = this.Width - 70;
 
-            button1.Left = trackBar1.Width + 5;
-            button1.Top = trackBar1.Top;
-            button1.Width = 60;
-            button1.Height = 40;
+            drawCubeButton.Left = trackBar1.Width + 5;
+            drawCubeButton.Top = trackBar1.Top;
+            drawCubeButton.Width = 60;
+            drawCubeButton.Height = 40;
             EnsureBuffer();
             ReDrawPicture();
 
@@ -89,10 +89,10 @@ namespace WindowsFormsControlLibrary1
             trackBar1.Top = pictureBox1.Height + 5;
             trackBar1.Width = this.Width - 70;
 
-            button1.Left = trackBar1.Width + 5;
-            button1.Top = trackBar1.Top;
-            button1.Width = 60;
-            button1.Height = 40;
+            drawCubeButton.Left = trackBar1.Width + 5;
+            drawCubeButton.Top = trackBar1.Top;
+            drawCubeButton.Width = 60;
+            drawCubeButton.Height = 40;
             EnsureBuffer();
             ReDrawPicture();
 
@@ -174,7 +174,7 @@ namespace WindowsFormsControlLibrary1
             ReDrawPicture();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void drawCubeButton_Click(object sender, EventArgs e)
         {
             trackBar1.Value = 0;
             K = Kbase;

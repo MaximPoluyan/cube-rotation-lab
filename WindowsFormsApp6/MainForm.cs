@@ -44,8 +44,8 @@ namespace WindowsFormsApp6
             UpdateUiState();
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+         
+        private void drawCubeButton_Click(object sender, EventArgs e)
         {
             myControlElement1.Kbase = 120;
             myControlElement1.AddCube(30, 60, 45);
@@ -59,7 +59,7 @@ namespace WindowsFormsApp6
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void deleteCubeButton_Click(object sender, EventArgs e)
         {
             myControlElement1.DeleteCube();
             myControlElement2.DeleteCube();
@@ -68,7 +68,7 @@ namespace WindowsFormsApp6
             UpdateUiState();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void startRotationButton_Click(object sender, EventArgs e)
         {
             myControlElement1.StartCube(30, 15, 60);
             myControlElement2.StartCube(20, 15, 90);
@@ -76,7 +76,7 @@ namespace WindowsFormsApp6
             UpdateUiState();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void stopRotationButton_Click(object sender, EventArgs e)
         {
             myControlElement1.StopCube();
             myControlElement2.StopCube();
@@ -84,7 +84,7 @@ namespace WindowsFormsApp6
             UpdateUiState();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void changeColorButton_Click(object sender, EventArgs e)
         {
             using (var dlg = new ColorDialog())
             {
