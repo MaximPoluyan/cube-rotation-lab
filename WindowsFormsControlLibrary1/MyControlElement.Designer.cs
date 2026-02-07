@@ -65,7 +65,8 @@
             this.drawCubeButton.TabIndex = 2;
             this.drawCubeButton.Text = "Reset";
             this.drawCubeButton.UseVisualStyleBackColor = true;
-            this.drawCubeButton.Click += new System.EventHandler(this.drawCubeButton_Click);
+            this.drawCubeButton.Click += new System.EventHandler(this.resetButton_Click);
+
             // 
             // timer1
             // 

@@ -174,7 +174,7 @@ namespace WindowsFormsControlLibrary1
             ReDrawPicture();
         }
 
-        private void drawCubeButton_Click(object sender, EventArgs e)
+        private void resetButton_Click(object sender, EventArgs e)
         {
             trackBar1.Value = 0;
             K = Kbase;

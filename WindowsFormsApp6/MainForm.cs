@@ -19,12 +19,12 @@ namespace WindowsFormsApp6
 
         private void UpdateUiState()
         {
-            
-            button1.Enabled = !_rotationRunning;                 
-            button2.Enabled = _cubeExists && !_rotationRunning;  
-            button3.Enabled = _cubeExists && !_rotationRunning;  
-            button4.Enabled = _rotationRunning;                  
-            button5.Enabled = true;                              
+
+            drawCubeButton.Enabled = !_rotationRunning;
+            deleteCubeButton.Enabled = _cubeExists && !_rotationRunning;
+            startRotationButton.Enabled = _cubeExists && !_rotationRunning;
+            stopRotationButton.Enabled = _rotationRunning;
+            changeColorButton.Enabled = true;                              
         }
 
 
